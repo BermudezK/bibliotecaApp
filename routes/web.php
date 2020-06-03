@@ -1,7 +1,20 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+// App\Role::create([
+//     'clave' => 'user',
+//     'name' => 'Usuario final'
+// ]);
+// App\User::create([
+//     'name' => 'Usuario Final',
+//     'email' => 'final_user@mail.com',
+//     'password' => bcrypt('user1234'),
+//     'role_id' => 2
+// ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +35,6 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('usuarios', 'UsersController');
