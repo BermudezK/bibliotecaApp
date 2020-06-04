@@ -7,11 +7,11 @@ use App\Libro;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
-{   
+{
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('auth')->except('index', 'show');
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class LibroController extends Controller
     public function index()
     {
         $libros = Libro::all();
-        return view('libro.index',compact('libros'));
+        return view('libro.index', compact('libros'));
     }
 
     /**
@@ -31,8 +31,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return view('libro.create',[
-            'libro'=>new Libro()
+        return view('libro.create', [
+            'libro' => new Libro()
         ]);
     }
 
@@ -56,7 +56,7 @@ class LibroController extends Controller
      */
     public function show(Libro $libro)
     {
-        return view('libro.show', ['libro'=>$libro]);
+        return view('libro.show', ['libro' => $libro]);
     }
 
     /**
@@ -67,8 +67,8 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-        return view('libro.edit',[
-            'libro'=>$libro
+        return view('libro.edit', [
+            'libro' => $libro
         ]);
     }
 
@@ -82,7 +82,7 @@ class LibroController extends Controller
     public function update(SaveLibroRequest $request, Libro $libro)
     {
         $libro->update($request->validated());
-        return redirect()->route('libro.show',$libro);
+        return redirect()->route('libro.show', $libro);
     }
 
     /**
@@ -91,8 +91,10 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Libro $libro)
     {
-        //
+        $libro->delete();
+
+        return redirect()->route('libro.index');
     }
 }

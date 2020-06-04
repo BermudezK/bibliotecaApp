@@ -19,6 +19,7 @@ class CreateLibrosTable extends Migration
             // $table->string('frontCover')->nullable();
             $table->text('description');
             $table->integer('count');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
