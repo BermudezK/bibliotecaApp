@@ -42,8 +42,9 @@ class User extends Authenticatable
     }
 
     public function hasRoles(array $roles){
+        
         foreach ($roles as $role){
-            if ($this->role->clave === $role){
+            if ($this->role->name == 'admin'){
                 return true;
             }
         }

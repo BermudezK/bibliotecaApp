@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveLibroRequest;
+use App\Isbn;
 use App\Libro;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,9 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::all();
-        return view('libro.index', compact('libros'));
+        return view('libro.index', [
+            'libros'=>Libro::latest()->paginate(10)
+        ]);
     }
 
     /**
@@ -32,7 +34,8 @@ class LibroController extends Controller
     public function create()
     {
         return view('libro.create', [
-            'libro' => new Libro()
+            'libro' => new Libro(),
+            'isbn'=>[]
         ]);
     }
 
@@ -44,7 +47,19 @@ class LibroController extends Controller
      */
     public function store(SaveLibroRequest $request)
     {
-        Libro::create($request->validated());
+        $isbns=request('isbn');
+        $count= count($isbns);
+        $libro= Libro::create([
+            'title'=>request('title'),
+            'description'=>request('description'),
+            'count'=>$count
+        ]);
+        foreach($isbns as $isbnItem){
+            Isbn::create([
+                'isbn'=> $isbnItem,
+                'libro_id'=>$libro->id
+            ]);
+        };
         return redirect()->route('libro.index');
     }
 
@@ -67,8 +82,11 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
+        $isbn = Libro::find($libro->id)->isbns;
+
         return view('libro.edit', [
-            'libro' => $libro
+            'libro' => $libro,
+            'isbn'=> $isbn
         ]);
     }
 

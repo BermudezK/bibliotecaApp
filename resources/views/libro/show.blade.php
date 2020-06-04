@@ -16,9 +16,9 @@
                 </div>
                 <div class="card-body">
                     <h1 class="card-title">{{$libro->title}}</h1>
-                    <h4 class="card-subtitle mb-2 text-muted">
-                        <span class="badge badge-pill badge-info" title="cantidad disponible">{{$libro->count}}</span>
-                    </h4>
+                    <h5 class="card-subtitle mb-2 text-muted">
+                        <span class="badge badge-pill badge-info text-white" title="cantidad disponible">Disponibles {{$libro->count}}</span>
+                    </h5>
                     <p class="card-text lead">
                         {{$libro->description}}
                     </p>

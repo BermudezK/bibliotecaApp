@@ -11,6 +11,8 @@
     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/ui_method.js') }}" defer></script>
+
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -66,7 +68,7 @@
                                     </form>
                                 </div>
                             </li>
-                            @if (auth()->check())                                
+                            @if (auth()->check())
                                 @if (auth()->user()->hasRoles(['admin']))
                                 <li><a href="{{route('usuarios.index')}}">Usuarios</a>
                                 </li>

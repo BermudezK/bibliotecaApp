@@ -17,15 +17,8 @@
         </div>
     </div>
 </div>
-<div class="form-row">
-    <div class="col-6 mb-3">
-        <label for="validationTitle">Cantidad</label>
-        <input type="text" class="form-control" id="validationTitle" placeholder="Ingrese la cantidad de libros..." name="count" required value="{{old('Cantidad...', $libro->count)}}">
-        <div class="valid-feedback">
-            Looks good!
-        </div>
-    </div>
-</div>
+@include('isbn._createForm')
+
 <div class="text-center">
     <button class="btn btn-outline-primary rounded-pill mb-3">{{$btnText}}</button>
 </div>

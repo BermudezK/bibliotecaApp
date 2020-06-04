@@ -11,6 +11,11 @@ class Libro extends Model
   use SoftDeletes;
 
   protected $dates = ['deleted_at'];
+
+  public function isbns()
+  {
+    return $this->hasMany(Isbn::class);
+  }
 }
 
 // $libros = Libro::withTrashed()->orderBy('deleted_at','asc')->get();
