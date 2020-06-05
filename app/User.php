@@ -44,10 +44,13 @@ class User extends Authenticatable
     public function hasRoles(array $roles){
         
         foreach ($roles as $role){
-            if ($this->role->name == 'admin'){
+            if ($this->role->clave == $role){
                 return true;
             }
         }
         return false;
+    }
+    public function borrows(){
+        return $this->hasMany(Borrow::class);
     }
 }

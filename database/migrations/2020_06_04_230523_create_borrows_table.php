@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIsbnsTable extends Migration
+class CreateBorrowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateIsbnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('isbns', function (Blueprint $table) {
+        Schema::create('borrows', function (Blueprint $table) {
             $table->id();
-            $table->string('isbn')->unique();
-            $table->integer('libro_id');
-            $table->boolean('state')->default(0);
+            $table->integer('isbn_id');
+            $table->integer('user_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateIsbnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('isbns');
+        Schema::dropIfExists('borrows');
     }
 }

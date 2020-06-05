@@ -21,6 +21,7 @@
             d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
     </svg>
 </a>
+
 {{-- {{ ELIMINAR LIBRO }} --}}
 <form action="{{ route('libro.destroy', $libro)}}" method="post" class="d-inline-block">
     @csrf @method('DELETE')
@@ -36,10 +37,5 @@
     </button>
 
 </form>
-
-
-
-
-
 @endif
 @endif

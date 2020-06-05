@@ -12,7 +12,9 @@ class LibroController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'show');
+        $this->middleware(['auth',
+            'roles:admin'
+        ])->except('index', 'show');
     }
     /**
      * Display a listing of the resource.
@@ -71,7 +73,9 @@ class LibroController extends Controller
      */
     public function show(Libro $libro)
     {
-        return view('libro.show', ['libro' => $libro]);
+        $isbn = Libro::find($libro->id)->isbns;
+
+        return view('libro.show', ['libro' => $libro, 'isbn'=> $isbn]);
     }
 
     /**

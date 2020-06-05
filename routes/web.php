@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsersController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('libro','LibroController')->names('libro');
+Route::resource('libro', 'LibroController')->names('libro');
+
+Route::get('borrow/create/{libro}/{isbn}', 'BorrowController@create')->name('borrow.create');
+Route::get('borrow/myBorrows', 'BorrowController@myBorrows')
+    ->name('borrow.myBorrows');
+Route::resource('borrow', 'BorrowController', ['except' => ['create']])->names('borrow');
 
 Route::resource('usuarios', 'UsersController');
