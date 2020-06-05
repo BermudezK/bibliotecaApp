@@ -8,7 +8,8 @@
                     @csrf @method('PATCH')
                     @include('libro._bookForm', [
                         'btnText'=>'Editar Libro',
-                        'show'=>''
+                        'show'=>'',
+                        'edit'=>true
                     ])
                 </form>
             </div>

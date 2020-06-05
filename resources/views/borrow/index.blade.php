@@ -20,25 +20,38 @@
                     <tr>
                         <th>Isbn</th>
                         <th>Titulo</th>
+                        @if (auth()->user()->hasRoles(['admin']))
+
+                        <th>Usuario</th>
                         <th>Acciones</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($borrows as $borrow )
+                    @forelse ($borrows as $borrow )
                     <tr class="text-center">
-                        <td></td>
                         <td>
                             {{ $borrow->isbn}}
                         </td>
                         <td>
                             {{ $borrow->title}}
                         </td>
-
+                        @if (auth()->user()->hasRoles(['admin']))
+                        <td>{{$borrow->name}}</td>
                         <td>
                             @include('borrow._buttonDestroy')
                         </td>
+                        @endif
+
                     </tr>
-                    @endforeach
+
+                    @empty
+                    <tr>
+                        <td colspan="3">
+                            No hay prestamos pendientes
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
             {{$borrows->links() }}

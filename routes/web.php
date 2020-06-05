@@ -38,9 +38,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('libro', 'LibroController')->names('libro');
 
-Route::get('borrow/create/{libro}/{isbn}', 'BorrowController@create')->name('borrow.create');
+Route::get('borrow/create/{libro}/{isbn}', 'BorrowController@create')->name('borrow.create')
+    ->middleware('auth', 'roles:admin');
+
 Route::get('borrow/myBorrows', 'BorrowController@myBorrows')
-    ->name('borrow.myBorrows');
-Route::resource('borrow', 'BorrowController', ['except' => ['create']])->names('borrow');
+    ->name('borrow.myBorrows')->middleware('auth', 'roles:user,admin');
+
+Route::resource('borrow', 'BorrowController', ['except' => ['create']])->names('borrow')
+    ->middleware('auth', 'roles:admin');
 
 Route::resource('usuarios', 'UsersController');
