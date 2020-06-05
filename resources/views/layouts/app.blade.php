@@ -125,7 +125,7 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordionExample">
 
-                                    @if (auth()->user()->hasRoles(['user']))
+                                    @if (auth()->user()->hasRoles(['admin']))
                                     <a href="{{ route('borrow.index') }}" class="btn bg-dark d-block text-white m-1">Ver
                                         Listado</a>
                                     @endif
