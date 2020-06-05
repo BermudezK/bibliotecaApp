@@ -1,4 +1,4 @@
-@if (auth()->check() && auth()->user()->hasRoles(['admin','user']))
+@if (auth()->check() && auth()->user()->hasRoles(['admin']))
 {{-- {{ ELIMINAR PRESTAMO }} --}}
 <form action="{{ route('borrow.destroy',[$borrow->id])}}" method="POST" class="d-inline-block">
     @csrf @method('DELETE')

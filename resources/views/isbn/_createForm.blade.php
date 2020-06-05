@@ -1,7 +1,9 @@
-
 @if (auth()->check())
-    
+
 <table class="table table-hover" id="isbnTable" name="">
+    @if ($errors->has('isbn'))
+    <label class="text-danger" for="description">Debe Cargar al menos un Isbn en la lista</label>
+    @endif
     <thead>
         <tr class="text-center">
             <th scope="col">ISBN</th>
@@ -27,6 +29,7 @@
     </tbody>
 </table>
 @if (auth()->user()->hasRoles(['admin']))
-<input class="btn btn-outline-success rounded-pill {{ $show }}" type="button" value="agregar" id="addrow" onclick="addRow()">
+<input class="btn btn-outline-success rounded-pill {{ $show }}" type="button" value="agregar" id="addrow"
+    onclick="addRow()">
 @endif
 @endif
