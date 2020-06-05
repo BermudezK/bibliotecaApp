@@ -23,7 +23,7 @@
                     <p class="card-text lead">
                         {{$libro->description}}
                     </p>
-                    @include('isbn._createForm')
+                    @include('isbn._createForm',['show'=>'d-none'])
 
                 </div>
             </div>

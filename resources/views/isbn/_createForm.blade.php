@@ -1,5 +1,6 @@
 
-
+@if (auth()->check())
+    
 <table class="table table-hover" id="isbnTable" name="">
     <thead>
         <tr class="text-center">
@@ -25,5 +26,7 @@
         @endif
     </tbody>
 </table>
-
-<input type="button" value="agregar" id="addrow" onclick="addRow()">
+@if (auth()->user()->hasRoles(['admin']))
+<input class="btn btn-outline-success rounded-pill {{ $show }}" type="button" value="agregar" id="addrow" onclick="addRow()">
+@endif
+@endif

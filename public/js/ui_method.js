@@ -4,10 +4,10 @@ function addRow() {
         `
         <tr> 
             <td>
-                <input type="text" class="form-control" name="isbn[]"/>
+                <input type="text" class="form-control" name="isbn[]" required/>
             </td>
             <td>
-                <button type="button" class="btn btn-danger" onclick="rowDelete(this)">x</button>
+                <button type="button" class="btn btn-outline-danger" onclick="rowDelete(this)">x</button>
             </td>
             
         </tr>

@@ -9,7 +9,7 @@
             <br>
             <form method="POST" action="{{ route('libro.store')}}">
                 @csrf
-                @include('libro._bookForm', ['btnText'=>'Cargar Libro'])
+                @include('libro._bookForm', ['btnText'=>'Cargar Libro','show'=>''])
             </form>
         </div>
     </div>

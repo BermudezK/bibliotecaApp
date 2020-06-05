@@ -17,8 +17,10 @@
         </div>
     </div>
 </div>
-@include('isbn._createForm')
+@include('isbn._createForm',[
+    'show'=>$show
+])
 
 <div class="text-center">
-    <button class="btn btn-outline-primary rounded-pill mb-3">{{$btnText}}</button>
+    <button class="btn btn-primary rounded-pill mb-3">{{$btnText}}</button>
 </div>

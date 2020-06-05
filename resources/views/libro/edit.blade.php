@@ -7,7 +7,8 @@
                 <form method="POST" action="{{ route('libro.update', $libro)}}">
                     @csrf @method('PATCH')
                     @include('libro._bookForm', [
-                        'btnText'=>'Editar Libro'
+                        'btnText'=>'Editar Libro',
+                        'show'=>''
                     ])
                 </form>
             </div>

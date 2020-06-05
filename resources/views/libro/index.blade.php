@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-10 offset-1">
         <div class="text-center">
 
             <h1>Libros de nuestro catalogo</h1>
