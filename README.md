@@ -121,4 +121,18 @@ exit
 	`docker-compose exec app php artisan db:seed --class=RolSeeder`
 	- Cargaremos el usuario administrador (usuario: karysol_92@hotmail.com password: hola1234) ejecutando el siguiente comando : 
 	 `docker-compose exec app php artisan db:seed --class=UserSeeder`
-13. Ahora esta listo para iniciar sesion como administrador o crear un nuevo usuario con rol user.
+13. Ahora instalaremos las dependencias necesaarias del proyecto:
+	- bien si cuentas con npm en tu equipo ejecutando el comando:
+		`npm install`
+14. Ahora si listos para ver la aplicacion:
+	- pudes dirigirte en el navegador a `http://localhost:8080/`
+	- o bien con npm iniciar browserSync (que desplegara la aplicacion en el navegador):
+		`npm run watch`
+
+
+## P/D
+	- cualquier consulta con los pasos de docker aqui esta una guia mas detallada:
+		[# Cómo configurar Laravel, Nginx y MySQL con Docker Compose](https://www.digitalocean.com/community/tutorials/como-configurar-laravel-nginx-y-mysql-con-docker-compose-es)
+
+
+Saludos

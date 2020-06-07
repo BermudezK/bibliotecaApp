@@ -16,7 +16,7 @@ class BorrowController extends Controller
         $this->middleware([
             'auth',
             'roles:admin'
-        ])->except(['myBorrows']);
+        ])->except(['myBorrows','create']);
     }
     /**
      * Display a listing of the resource.
