@@ -12,7 +12,7 @@
     <div class="col mb-3">
         <label for="description">Descripcion</label>
         <textarea type="text" class="form-control" rows="10" placeholder="Ingrese una descripcion breve del libro"
-            name="description">{{old('Descripcion...', $libro->description)}}</textarea>
+            name="description" style="white-space: pre-line;">{{old('Descripcion...', $libro->description) }}</textarea>
             @if ($errors->has('title'))
             <label class="text-danger" for="description">Debe completar el campo Descripcion</label>
            @endif

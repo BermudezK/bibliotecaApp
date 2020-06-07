@@ -20,7 +20,8 @@
                         <span class="badge badge-pill badge-info text-white" title="cantidad disponible">Disponibles
                             {{$libro->count}}</span>
                     </h5>
-                    <p class="card-text lead">
+                    
+                    <p class="card-text lead" style="white-space: pre-line;">
                         {{$libro->description}}
                     </p>
                     @include('isbn._createForm',['show'=>'d-none','edit'=>false])
