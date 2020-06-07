@@ -13,10 +13,10 @@ class BorrowController extends Controller
 {
     public function __construct()
     {
-        $this->middleware([
-            'auth',
-            'roles:admin'
-        ])->except(['myBorrows','create']);
+        // $this->middleware([
+        //     'auth',
+        //     'roles:admin'
+        // ])->except(['myBorrows','create']);
     }
     /**
      * Display a listing of the resource.

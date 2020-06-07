@@ -44,6 +44,6 @@ Route::get('borrow/create/{libro}/{isbn}', 'BorrowController@create')->name('bor
 Route::get('borrow/myBorrows', 'BorrowController@myBorrows')
     ->name('borrow.myBorrows')->middleware('auth', 'roles:user,admin');
 
-Route::resource('borrow', 'BorrowController')->names('borrow');
+Route::resource('borrow', 'BorrowController',['except' => ['myBorrows','create']])->names('borrow');
 
 Route::resource('usuarios', 'UsersController');
